@@ -1,21 +1,12 @@
 package com.bajaj.bfhl.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-
 import java.util.List;
 
 /**
  * Response body model representing the processed outcome.
- * Includes Lombok annotations as required, with explicit fallbacks to guarantee compilation.
+ * Uses clean vanilla Java to ensure seamless compatibility across all compilation toolchains.
  */
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class BfhlResponse {
     
     @JsonProperty("is_success")
@@ -36,7 +27,6 @@ public class BfhlResponse {
     @JsonProperty("alphabets")
     private List<String> alphabets;
 
-    // Explicit constructors and getters/setters to guarantee compilation without Lombok processor
     public BfhlResponse() {
     }
 
@@ -98,7 +88,6 @@ public class BfhlResponse {
         this.alphabets = alphabets;
     }
 
-    // Explicit builder implementation to replace Lombok builder if processor is inactive
     public static BfhlResponseBuilder builder() {
         return new BfhlResponseBuilder();
     }
