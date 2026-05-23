@@ -5,8 +5,8 @@ COPY pom.xml .
 COPY src ./src
 RUN mvn clean package -DskipTests
 
-# Stage 2: Run the application
-FROM openjdk:17-jdk-slim
+# Stage 2: Run the application using Eclipse Temurin JRE (standard and actively supported)
+FROM eclipse-temurin:17-jre
 WORKDIR /app
 COPY --from=build /app/target/bajaj-bfhl-api-1.0.0.jar app.jar
 EXPOSE 8080
